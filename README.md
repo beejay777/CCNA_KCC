@@ -84,3 +84,43 @@ After setting up the router the router config must be saved before turning off t
 
 The syntax of copy command is. 
 `copy <source> <destination>`
+
+
+
+two methods to connect a computer to the router. 
+1 through console cable
+2 through ethernet cable
+
+For switch connection
+```
+conf# interface vlan1
+conf-if# ip address 192.168.1.1 255.255.255.0
+conf-if# no shutdown
+```
+// vty: Virtual Terminal
+
+For password access for 
+Console: 
+```
+conf# line console 0 (because there is only one console)
+conf-line# password <ccna>
+conf-line# login (asks for the password)
+conf-line# no login (doesnot ask for the password)
+conf-line# exec-timeout 0
+```
+Ethernet: 
+```
+conf# line vty 0 or 4 (there maybe any number of connections through ethernet)
+conf-line# password <ccna>
+conf-line# login
+conf-line# no login (doesnot ask for the password)
+conf-line# exec-timeout 0
+```
+
+To see the  config files..
+`show running-config // to see config files of RAM in router`
+`show startup-config // to see config of NVRAM in router`
+
+
+To hide(encrypt) password in config files.
+`conf# service password-encryption`
